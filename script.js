@@ -1,8 +1,6 @@
 const player_1 = "x"; //creating the players
 const player_2 = "o";
 const game_board = document.querySelector(".game_board");
-// state = true;
-// let move_count = 0;
 
 const game_template = {
   state: true,
@@ -10,7 +8,7 @@ const game_template = {
 };
 
 let game = {};
-Object.assign(game, game_template);
+Object.assign(game, game_template); //adding values of game_template to game
 
 const win_combinations = [
   [0, 1, 2],
@@ -45,6 +43,10 @@ document.querySelector(".game_board").onclick = function (event) {
             this.children[combination[1]].textContent === player &&
             this.children[combination[2]].textContent === player
           ) {
+            this.children[combination[0]].classList.add("win_move");
+            this.children[combination[1]].classList.add("win_move");
+            this.children[combination[2]].classList.add("win_move");
+
             document.querySelector(".message").textContent =
               player + "  has won!";
             game.state = false;
@@ -63,6 +65,7 @@ document.querySelector(".reset").onclick = function (event) {
   for (const cell of game_board.children) {
     // console.log(cell.textContent);
     cell.textContent = "";
+    cell.classList.remove("win_move");
   }
   Object.assign(game, game_template);
 };
