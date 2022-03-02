@@ -1,5 +1,16 @@
 const player_1 = "x"; //creating the players
 const player_2 = "o";
+const game_board = document.querySelector(".game_board");
+// state = true;
+// let move_count = 0;
+
+const game_template = {
+  state: true,
+  move_count: 0,
+};
+
+let game = {};
+Object.assign(game, game_template);
 
 const win_combinations = [
   [0, 1, 2],
@@ -14,16 +25,15 @@ const win_combinations = [
   [2, 4, 6],
 ];
 
-let move_count = 0;
-
 document.querySelector(".game_board").onclick = function (event) {
   //   console.log(event.target.tagName);
   let player = player_1;
 
   if ((event.target.tagName = "A")) {
-    if (event.target.textContent === "") {
+    if (event.target.textContent === "" && game.state === true) {
+      //if empty cell, then continue game
       determin_turn: {
-        if (move_count % 2 != 0) {
+        if (game.move_count % 2 != 0) {
           player = player_2;
         }
         event.target.textContent = player;
@@ -37,10 +47,22 @@ document.querySelector(".game_board").onclick = function (event) {
           ) {
             document.querySelector(".message").textContent =
               player + "  has won!";
+            game.state = false;
+            break; //stop the cycle - pārtrauc cikla darbību
           }
         }
       }
-      move_count++;
+      game.move_count++;
     }
   }
+};
+
+document.querySelector(".reset").onclick = function (event) {
+  console.log("reset button is pressed");
+  document.querySelector(".message").textContent = "";
+  for (const cell of game_board.children) {
+    // console.log(cell.textContent);
+    cell.textContent = "";
+  }
+  Object.assign(game, game_template);
 };
