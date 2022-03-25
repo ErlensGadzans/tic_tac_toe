@@ -51,6 +51,22 @@ document.querySelector(".game_board").onclick = function (event) {
               player + "  has won!";
             game.state = false;
             break; //stop the cycle - pārtrauc cikla darbību
+          } else {
+            if (
+              this.children[0].textContent !== "" &&
+              this.children[1].textContent !== "" &&
+              this.children[2].textContent !== "" &&
+              this.children[3].textContent !== "" &&
+              this.children[4].textContent !== "" &&
+              this.children[5].textContent !== "" &&
+              this.children[6].textContent !== "" &&
+              this.children[7].textContent !== ""
+            ) {
+              document.querySelector(".message").textContent =
+                "We have no winner!";
+              game.state = false;
+              break; //stop the cycle - pārtrauc cikla darbību
+            }
           }
         }
       }
@@ -60,7 +76,7 @@ document.querySelector(".game_board").onclick = function (event) {
 };
 
 document.querySelector(".reset").onclick = function (event) {
-  console.log("reset button is pressed");
+  // console.log("reset button is pressed");
   document.querySelector(".message").textContent = "";
   for (const cell of game_board.children) {
     // console.log(cell.textContent);
