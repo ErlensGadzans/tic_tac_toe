@@ -4,9 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;500;900&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="style.css" />
     <title>Tic Tac Toe</title>
   </head>
+  <h1>Tic Tac Toe</h1>
   <body>
     <h2 class="message"></h2>
     <div class="game_board">
@@ -22,8 +30,18 @@
       <a href="#" data-coord="8"></a>
       <a href="#" data-coord="9"></a>
     </div>
+    <div class="button_container">
+      <a
+        href="#"
+        class="btn reset icon fa-solid fa-rotate-right"
+        onclick="reset()"
+      ></a>
+    </div>
 
-    <a href="#" class="btn reset" onclick="reset()">Reset</a>
+    <script
+      src="https://kit.fontawesome.com/3aa1bf0feb.js"
+      crossorigin="anonymous"
+    ></script>
 
     <script src="script.js"></script>
   </body>

@@ -1,23 +1,46 @@
+body{
+  background: rgba(25,42,50,255);
+}
+
 .game_board {
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-  grid-gap: 2px;
+  grid-gap: 15px;
   width: 604px;
   height: 604px;
   margin: 20px auto;
+ 
+}
+h1 {
+  display:flex;
+  justify-content:center;
+  font-family: 'Outfit', sans-serif;
+  font-weight:500;
+  color:rgba(168,190,201,255);
 }
 
+.message{
+  font-family: 'Outfit', sans-serif;
+  font-weight:900;
+  font-size: 50Px;
+  color: rgba(242,177,55,255);
+
+}
 .game_board a {
-  background: rgb(226, 226, 226);
+  background: rgba(31,53,64,255);
   text-decoration: none;
   text-align: center;
-  line-height: 200px;
-  font-size: 150px;
-  color: rgb(68, 68, 68);
+  line-height: 187px;
+  font-size: 100px;
+  font-family: 'Outfit', sans-serif;
+  font-weight:900;
+  color: rgba(49,195,189,255);
+  border-radius: 30px;
+  box-shadow: 5px 5px 10px 2px rgba(16,33,42,255);
 }
 
 .game_board a:hover {
-  background: rgb(178, 243, 167);
+  background: rgba(168,190,201,255);
 }
 
 .four-in-line {
@@ -28,28 +51,59 @@
   line-height: 56px;
   font-size: 45px;
 }
-
-.btn {
-  background: rgb(226, 226, 226);
-  border: 1px solid #000;
-  border-radius: 20%;
-  color: rgb(68, 68, 68);
-  display: block;
-  margin: 20px auto;
-  padding: 5px 10px;
-  text-decoration: none;
-  width: fit-content;
+.button_container{
+  display:flex;
+  justify-content:center;
+ align-items: center;
 }
 
+.btn {
+  background: rgba(168,190,201,255);
+  border: 1px solid rgb(68, 68, 68);
+  border-radius: 20%;
+  color: rgb(68, 68, 68);
+  padding: 5px 10px;
+  text-decoration: none;
+  box-shadow: 2px 2px 0px 0px rgba(168,190,201,255);
+ 
+
+}
 h2 {
   text-align: center;
 }
 
 .game_board .win_move {
-  background: rgb(192, 241, 31);
+  background: rgba(242,177,55,255);
 }
 
 .message {
   text-align: center;
   height: 30px;
+}
+
+@media(max-width:699px){
+
+  .game_board {
+    width: 404px;
+    height: 404px;
+  }
+  .game_board a {
+    line-height:124px;
+    font-size: 66px;
+  }
+}
+
+@media(max-width:375px){
+
+  .game_board {
+  
+    grid-gap: 15px;
+    width: 304px;
+    height: 304px;
+
+  }
+  .game_board a {
+    line-height:80px;
+    font-size: 36px;
+  }
 }
